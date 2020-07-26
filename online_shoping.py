@@ -17,7 +17,7 @@ class Main:
                 customer_name = input()
                 customer = Customers(customer_name, customer_id)
                 shop.addcustomers(customer)
-                print(shop.customerslist)
+                # print(shop.customerslist)
 
             elif entry == 'good':
                 good_id = int(input())
@@ -27,14 +27,14 @@ class Main:
                 good = Good(good_name, good_id, good_price)
                 shop.setgood(good)
                 shop.increamentGood(good, good_amount)
-                print(shop.goods)
+                # print(shop.goods)
 
             elif entry == 'repository':
                 rep_id = int(input())
                 rep_capacity = int(input())
                 rep = Rep(rep_id, rep_capacity)
                 shop.addrep(rep)
-                print(shop.reps)
+                # print(shop.reps)
 
             elif entry == 'order':
                 order_id = int(input())
@@ -43,7 +43,7 @@ class Main:
                 for j in range(len(shop.customerslist)):
                     if order_customer_id == shop.customerslist[j].id:
                         shop.customerslist[j].addorder(order)
-                        print(shop.customerslist[j].orderslist[0].id,'asdfghjkl')
+                        # print(shop.customerslist[j].orderslist[0].id, 'order check')
 
             elif entry == 'balance':
                 balance_customer_id = int(input())
@@ -51,6 +51,7 @@ class Main:
                 for j in range(len(shop.customerslist)):
                     if balance_customer_id == shop.customerslist[j].id:
                         shop.customerslist[j].setbalance(balance_settle)
+                        # print(shop.customerslist[j].balance, 'check balance')
 
             elif entry == 'item':
                 item_order_id = int(input())
@@ -73,14 +74,13 @@ class Main:
             report_entry = input().lower()
             if report_entry == 'customers':
                 for i in range(len(shop.customerslist)):
-                    print((shop.customerslist[i].id + ',' + shop.customerslist[i].name + ',' + shop.customerslist[
-                        i].balance + ','
-                           + {} + ',' + {} + "\n").format(len(shop.customerslist[i].saved),
-                                                          len(shop.customerslist[i].orderslist)))
+                    print(shop.customerslist[i].id, ',', shop.customerslist[i].name, ',', shop.customerslist[
+                        i].balance, ','
+                          , len(shop.customerslist[i].saved), ',', len(shop.customerslist[i].orderslist), "\n")
 
             elif report_entry == 'repositories':
                 for i in range(len(shop.reps)):
-                    print(shop.reps[i].id + ',' + shop.reps[i].capacity + ',' + shop.reps[i].getfreecap + '\n')
+                    print(shop.reps[i].id, ',', shop.reps[i].capacity, ',', shop.reps[i].getfreecap, '\n')
 
             elif report_entry == 'income':
                 print(shop.income)
@@ -117,7 +117,7 @@ class Main:
                                                                             shop.customerslist[i].orderslist[j].orders[
                                                                                 l].value)
                                                     shop.customerslist[i].balance -= \
-                                                    shop.customerslist[i].orderslist[j].orders[l].calculateprice
+                                                        shop.customerslist[i].orderslist[j].orders[l].calculateprice
                                                     shop.income += shop.customerslist[i].orderslist[j].orders[
                                                         l].calculateprice
 
