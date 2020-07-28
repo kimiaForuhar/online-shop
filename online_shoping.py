@@ -132,6 +132,7 @@ class Main:
                                     if not shop.customerslist[i].discounted:
                                         shop.customerslist[i].orderslist[j].adddiscount(shop.discount[k])
                                         shop.addDiscount(shop.discount[k])
+                                        shop.customerslist[i].discounted = True
 
         elif rule == 'terminate':
             break
